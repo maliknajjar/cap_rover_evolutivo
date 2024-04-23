@@ -1,0 +1,36 @@
+{
+    // "workbench.colorTheme": "Quiet Light",
+    "phpcs.executablePath": "/usr/bin/phpcs",
+    "phpcs.autoConfigSearch": false,
+    "phpcs.standard": "build/cbSR",
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [
+        170,
+        180
+    ],
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+    "window.zoomLevel": 0,
+    "editor.insertSpaces": false,
+    "files.associations": {
+        "*.inc": "php",
+        "*.service": "php"
+    },
+    "breadcrumbs.enabled": true,
+    "php.suggest.basic": false,
+    "files.watcherExclude": {
+        "**/cache/**": true,
+        "**/logs/**": true,
+        "**/templates_c/**": true
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "[xml]": {
+        "editor.defaultFormatter": "mikeburgh.xml-format"
+    },
+
+    // eslint settings
+    "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
+    "eslint.options": {
+        // "configFile": "/var/www//html/corebos/build/cbSR/eslintrc.js",
+        "overrideConfigFile": "/var/www//html/corebos/build/cbSR/eslintrc.js"
+    },
+}
