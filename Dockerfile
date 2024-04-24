@@ -56,8 +56,8 @@ EXPOSE 80
 
 # adding evolutivo repository to the image
 COPY evolutivo /var/www/html/evolutivo
-# COPY configs/.htaccess /var/www/html/evolutivo/.htaccess
-# COPY index.php /var/www/html/evolutivo/index.php
+COPY configs/.htaccess /var/www/html/evolutivo/.htaccess
+COPY configs/config.inc.php /config.inc.php
 
 WORKDIR /var/www/html
 

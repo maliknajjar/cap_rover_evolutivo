@@ -21,11 +21,11 @@ ini_set('display_errors', 1);
  db_password
  db_name
 */
-$dbconfig['db_server'] = 'db';
-$dbconfig['db_port'] = ':3306';
-$dbconfig['db_username'] = 'root';
-$dbconfig['db_password'] = 'root';
-$dbconfig['db_name'] = 'corebos';
+$dbconfig['db_server'] = '<DB_HOST>';
+$dbconfig['db_port'] = ':<DB_PORT>';
+$dbconfig['db_username'] = '<DB_USER>';
+$dbconfig['db_password'] = '<DB_PASS>';
+$dbconfig['db_name'] = '<DB_NAME>';
 $dbconfig['db_type'] = 'mysqli';
 $dbconfig['db_status'] = 'true';
 $dbconfig['persistent'] = false;

@@ -2,6 +2,14 @@ version: '3.8'
 
 services:
   evolutivo:
-    build: '.'
+    build: '.Dockerfile'
+    image: malik446644/evolutivo:latest
+    environment:
+      - FRESH_INSTALL=1
+      - DB_HOST=captain.caprover.evolutivo.it
+      - DB_PORT=3306
+      - DB_NAME=evolutivo
+      - DB_USER=root
+      - DB_PASS=root
     ports:
       - "3005:80"
