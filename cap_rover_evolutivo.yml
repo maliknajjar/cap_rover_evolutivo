@@ -2,8 +2,8 @@ captainVersion: 4
 services:
   $$cap_appname-evolutivo:
     image: malik446644/evolutivo:latest
-    volumes:
-      - $$cap_appname-wp-data:/var/www/html
+    # volumes:
+      # - $$cap_appname-wp-data:/var/www/html
     restart: always
     environment:
       DB_HOST: $$cap_db_host
