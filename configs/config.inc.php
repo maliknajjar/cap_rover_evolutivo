@@ -39,10 +39,10 @@ $dbconfig['log_sql'] = false;
 // Adds a little overhead for performance but will be useful for debugging
 $SQL_LOG_INCLUDE_CALLER = false;
 
-$site_URL = 'http://localhost:8880/corebos';
+$site_URL = '<SITE_URL>/evolutivo';
 
 // root directory path
-$root_directory = '/var/www/html/corebos/';
+$root_directory = '/var/www/html/evolutivo/';
 
 // cache direcory path
 $cache_dir = 'cache/';
