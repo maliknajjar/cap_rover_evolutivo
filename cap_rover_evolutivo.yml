@@ -6,6 +6,7 @@ services:
       # - $$cap_appname-wp-data:/var/www/html
     restart: always
     environment:
+      FRESH_INSTALL: $$cap_fresh_install
       DB_HOST: $$cap_db_host
       DB_PORT: $$cap_db_port
       DB_NAME: $$cap_db_name
@@ -15,7 +16,7 @@ caproverOneClickApp:
   variables:
     - description: Fresh install boolean (possible value is 0 or 1) if true the DB config will be ignored
       defaultValue: 0
-      id: $$cap_db_host
+      id: $$cap_fresh_install
       label: Fresh install
     - description: Database host
       defaultValue: srv-captain--xxx
