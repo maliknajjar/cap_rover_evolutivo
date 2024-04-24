@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   evolutivo:
-    build: '.Dockerfile'
+    build: '.'
     image: malik446644/evolutivo:latest
     environment:
       - FRESH_INSTALL=1
