@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-LABEL Description="coreBOS linux-apache-php coreBOS Test"
 
 SHELL ["/bin/bash", "-c"]
 
@@ -45,9 +44,9 @@ COPY php.ini /etc/php/8.2/apache2/php.ini
 EXPOSE 80
 
 # Copy application files and configurations
-COPY --chown=www-data:www-data evolutivo /var/www/html/evolutivo
-COPY configs/.htaccess /var/www/html/evolutivo/.htaccess
-COPY configs/config.inc.php /config.inc.php
+RUN rm -rf /var/www/html/index.html
+COPY --chown=www-data:www-data evolutivo /var/www/html/
+COPY configs/.htaccess /var/www/html/.htaccess
 
 # Set working directory
 WORKDIR /var/www/html

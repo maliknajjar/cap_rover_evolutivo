@@ -2,44 +2,9 @@ captainVersion: 4
 services:
   $$cap_appname-evolutivo:
     image: malik446644/evolutivo:latest
-    # volumes:
-      # - $$cap_appname-wp-data:/var/www/html
-    restart: always
-    environment:
-      FRESH_INSTALL: $$cap_fresh_install
-      DB_HOST: $$cap_db_host
-      DB_PORT: $$cap_db_port
-      DB_NAME: $$cap_db_name
-      DB_USER: $$cap_db_user
-      DB_PASSWORD: $$cap_db_pass
-      # site url
-      SITE_URL: http://$$cap_appname.$$cap_root_domain
+    restart: alwaysclear
 caproverOneClickApp:
   variables:
-    - description: Fresh install boolean (possible value is 0 or 1) if true the DB config will be ignored
-      defaultValue: 0
-      id: $$cap_fresh_install
-      label: Fresh install
-    - description: Database host
-      defaultValue: srv-captain--xxx
-      id: $$cap_db_host
-      label: Database Host
-    - description: Database port
-      defaultValue: 3306
-      id: $$cap_db_port
-      label: Database Port
-    - description: Database name
-      defaultValue: evolutivo
-      id: $$cap_db_name
-      label: DB Name
-    - description: Database user
-      defaultValue: root
-      id: $$cap_db_user
-      label: DB User
-    - description: Database password
-      defaultValue: root
-      id: $$cap_db_pass
-      label: DB Password
   instructions:
     start: evolutivo is a CRM in php
     end: evolutivo is deployed successfully

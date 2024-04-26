@@ -3,13 +3,5 @@ version: '3.8'
 services:
   evolutivo:
     image: malik446644/evolutivo:latest
-    environment:
-      - FRESH_INSTALL=0
-      - DB_HOST=captain.caprover.evolutivo.it
-      - DB_PORT=3306
-      - DB_NAME=evolutivo
-      - DB_USER=root
-      - DB_PASS=root
-      - SITE_URL=http://localhost:3005
     ports:
       - "3005:80"
