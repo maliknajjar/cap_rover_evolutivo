@@ -6,7 +6,7 @@ services:
     build:
       context: '.'
       dockerfile: Dockerfile
-      # cache_from: []
+      cache_from: []
     environment:
       COREBOS_FRESH_INSTALL: '0'
       COREBOS_DBSERVER: captain.caprover.evolutivo.it

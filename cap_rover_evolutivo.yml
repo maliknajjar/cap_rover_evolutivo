@@ -1,6 +1,6 @@
 captainVersion: 4
 services:
-  $$cap_appname:
+  $$cap_appname-evolutivo:
     image: malik446644/evolutivo:latest
     # volumes:
       # - $$cap_appname-wp-data:/var/www/html
@@ -12,7 +12,7 @@ services:
       COREBOS_DBNAME: $$cap_db_name
       COREBOS_DBUSER: $$cap_db_user
       COREBOS_DBPASS: $$cap_db_pass
-      COREBOS_SITEURL: $$cap_protcol://$$cap_appname.$$cap_root_domain
+      COREBOS_SITEURL: $$cap_protcol://$$cap_appname-evolutivo.$$cap_root_domain
 caproverOneClickApp:
   variables:
     - description: Used Protocol (http | https)

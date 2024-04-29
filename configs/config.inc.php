@@ -39,10 +39,10 @@ $dbconfig['log_sql'] = false;
 // Adds a little overhead for performance but will be useful for debugging
 $SQL_LOG_INCLUDE_CALLER = false;
 
-$site_URL = '<SITE_URL>/evolutivo';
+$site_URL = '<SITE_URL>';
 
 // root directory path
-$root_directory = '/var/www/html/evolutivo/';
+$root_directory = '/var/www/html/';
 
 // cache direcory path
 $cache_dir = 'cache/';
