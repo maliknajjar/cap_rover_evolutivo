@@ -118,9 +118,11 @@ $dbconfig['db_name'] = getenv('COREBOS_DBNAME') ? getenv('COREBOS_DBNAME') : $db
 $site_URL = getenv('COREBOS_SITEURL') ? getenv('COREBOS_SITEURL') : $site_URL;
 if (getenv('COREBOS_DBSERVER')) {
 	$dbconfig['db_server'] = getenv('COREBOS_DBSERVER');
-	$dbconfig['db_hostname'] = $dbconfig['db_server'].$dbconfig['db_port'];
+	$dbconfig['db_port'] = getenv('COREBOS_DBPORT');
+	$dbconfig['db_hostname'] = $dbconfig['db_server'] . ':' . $dbconfig['db_port'];
 	$host_name = $dbconfig['db_hostname'];
 }
+$dbconfig['db_status'] = getenv('COREBOS_FRESH_INSTALL') === '1' ? '_DB_STAT_' : 'true';
 
 // Override with developer settings
 if (file_exists('config-dev.inc.php')) {

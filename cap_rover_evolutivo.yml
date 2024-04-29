@@ -1,10 +1,48 @@
 captainVersion: 4
 services:
-  $$cap_appname-evolutivo:
+  $$cap_appname:
     image: malik446644/evolutivo:latest
-    restart: alwaysclear
+    # volumes:
+      # - $$cap_appname-wp-data:/var/www/html
+    restart: always
+    environment:
+      COREBOS_FRESH_INSTALL: $$cap_fresh_install
+      COREBOS_DBSERVER: $$cap_db_host
+      COREBOS_DBPORT: $$cap_db_port
+      COREBOS_DBNAME: $$cap_db_name
+      COREBOS_DBUSER: $$cap_db_user
+      COREBOS_DBPASS: $$cap_db_pass
+      COREBOS_SITEURL: $$cap_protcol://$$cap_appname.$$cap_root_domain
 caproverOneClickApp:
   variables:
+    - description: Used Protocol (http | https)
+      defaultValue: http
+      id: $$cap_protcol
+      label: Used Protocol
+    - description: Fresh install boolean (possible value is 0 or 1) if true the DB config will be ignored
+      defaultValue: 0
+      id: $$cap_fresh_install
+      label: Fresh install
+    - description: Database host
+      defaultValue: srv-captain--xxx
+      id: $$cap_db_host
+      label: Database Host
+    - description: Database port
+      defaultValue: 3306
+      id: $$cap_db_port
+      label: Database Port
+    - description: Database name
+      defaultValue: evolutivo
+      id: $$cap_db_name
+      label: DB Name
+    - description: Database user
+      defaultValue: root
+      id: $$cap_db_user
+      label: DB User
+    - description: Database password
+      defaultValue: root
+      id: $$cap_db_pass
+      label: DB Password
   instructions:
     start: evolutivo is a CRM in php
     end: evolutivo is deployed successfully
