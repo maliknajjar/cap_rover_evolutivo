@@ -38,7 +38,7 @@ $dbconfig['log_sql'] = false;
 // Adds a little overhead for performance but will be useful for debugging
 $SQL_LOG_INCLUDE_CALLER = false;
 
-$site_URL = 'http://localhost/coreBOSTest';
+$site_URL = '<SITE_URL>';
 
 // root directory path
 $root_directory = '/var/www/html/';
@@ -116,6 +116,13 @@ $dbconfig['db_username'] = getenv('COREBOS_DBUSER') ? getenv('COREBOS_DBUSER') :
 $dbconfig['db_password'] = getenv('COREBOS_DBPASS') ? getenv('COREBOS_DBPASS') : $dbconfig['db_password'];
 $dbconfig['db_name'] = getenv('COREBOS_DBNAME') ? getenv('COREBOS_DBNAME') : $dbconfig['db_name'];
 $site_URL = getenv('COREBOS_SITEURL') ? getenv('COREBOS_SITEURL') : $site_URL;
+if (getenv('COREBOS_DBSERVER')) {
+	$dbconfig['db_server'] = getenv('COREBOS_DBSERVER');
+	$dbconfig['db_port'] = getenv('COREBOS_DBPORT');
+	$dbconfig['db_hostname'] = $dbconfig['db_server'] . ':' . $dbconfig['db_port'];
+	$host_name = $dbconfig['db_hostname'];
+}
+$dbconfig['db_status'] = getenv('COREBOS_FRESH_INSTALL') === '1' ? '_DB_STAT_' : 'true';
 
 // Override with developer settings
 if (file_exists('config-dev.inc.php')) {

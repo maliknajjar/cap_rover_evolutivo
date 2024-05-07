@@ -46,11 +46,14 @@ EXPOSE 80
 # Copy application files and configurations
 RUN rm -rf /var/www/html/index.html
 COPY --chown=www-data:www-data evolutivo /var/www/html/
-COPY configs/config.inc.php /var/www/html/config.inc.php
+COPY --chown=www-data:www-data configs/config.inc.php /var/www/html/config.inc.php
 COPY configs/.htaccess /var/www/html/.htaccess
 
 # Set working directory
 WORKDIR /var/www/html
+
+# Copy the www.conf php-fpm configuration
+COPY www.conf /etc/php/8.2/fpm/pool.d/www.conf
 
 # Copy and set permissions for startup script
 COPY start.sh /root

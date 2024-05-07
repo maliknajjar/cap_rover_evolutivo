@@ -3,9 +3,14 @@ version: '3.8'
 services:
   evolutivo:
     image: malik446644/evolutivo:latest
+    build:
+      context: '.'
+      dockerfile: Dockerfile
+      cache_from: []
     environment:
-      # Database Config
+      COREBOS_FRESH_INSTALL: '0'
       COREBOS_DBSERVER: captain.caprover.evolutivo.it
+      COREBOS_DBPORT: 3306
       COREBOS_DBNAME: evolutivo
       COREBOS_DBUSER: root
       COREBOS_DBPASS: root
