@@ -3,5 +3,20 @@ version: '3.8'
 services:
   evolutivo:
     image: malik446644/evolutivo:latest
+    environment:
+      # Database Config
+      COREBOS_DBSERVER: captain.caprover.evolutivo.it
+      COREBOS_DBNAME: evolutivo
+      COREBOS_DBUSER: root
+      COREBOS_DBPASS: root
+      COREBOS_SITEURL: http://localhost:3005
+      # file storage Config
+      COREBOS_FS_adapter: AWSS3
+      COREBOS_FS_awsbucket: test
+      COREBOS_FS_awssecret: x4dSEIo3JSb13IGX3Pq6OYA9oP05VkywCcwumYxT
+      COREBOS_FS_awskey: 6IrBksoAyfOIIuHOOKG3
+      COREBOS_FS_endpoint: http://minio:9000
+      COREBOS_FS_awsversion: ''
+      COREBOS_FS_awsregion: ''
     ports:
       - "3005:80"
