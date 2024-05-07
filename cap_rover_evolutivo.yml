@@ -2,9 +2,70 @@ captainVersion: 4
 services:
   $$cap_appname-evolutivo:
     image: malik446644/evolutivo:latest
-    restart: alwaysclear
+    restart: always
+    environment:
+      # database env
+      COREBOS_DBSERVER: $$cap_db_host
+      COREBOS_DBNAME: $$cap_db_name
+      COREBOS_DBUSER: $$cap_db_user
+      COREBOS_DBPASS: $$cap_db_pass
+      COREBOS_SITEURL: http://$$cap_appname.$$cap_root_domain
+      # external file storage env
+      COREBOS_FS_adapter: $$cap_fs_adapter
+      COREBOS_FS_awsbucket: $$cap_fs_aws_bucket
+      COREBOS_FS_awssecret: $$cap_fs_aws_secret
+      COREBOS_FS_awskey: $$cap_fs_aws_key
+      COREBOS_FS_endpoint: $$cap_fs_aws_endpoint
+      COREBOS_FS_awsversion: $$cap_fs_aws_version
+      COREBOS_FS_awsregion: $$cap_fs_aws_region
 caproverOneClickApp:
   variables:
+    # database values
+    - description: Database host
+      defaultValue: srv-captain--xxx
+      id: $$cap_db_host
+      label: Database Host
+    - description: Database name
+      defaultValue: evolutivo
+      id: $$cap_db_name
+      label: DB Name
+    - description: Database user
+      defaultValue: root
+      id: $$cap_db_user
+      label: DB User
+    - description: Database password
+      defaultValue: root
+      id: $$cap_db_pass
+      label: DB Password
+    # external file storage values
+    - description: File storage adapter
+      defaultValue: AWSS3
+      id: $$cap_fs_adapter
+      label: Adapter
+    - description: File storage AWS Bucket
+      defaultValue: test
+      id: $$cap_fs_aws_bucket
+      label: AWS Bucket
+    - description: File storage AWS secret
+      defaultValue: x4dSEIo3JSb13IGX3Pq6OYA9oP05VkywCcwumYxT
+      id: $$cap_fs_aws_secret
+      label: AWS secret
+    - description: File storage AWS key
+      defaultValue: 6IrBksoAyfOIIuHOOKG3
+      id: $$cap_fs_aws_key
+      label: AWS key
+    - description: File storage AWS endpoint
+      defaultValue: http://minio:9000
+      id: $$cap_fs_aws_endpoint
+      label: AWS endpoint
+    - description: File storage AWS version
+      defaultValue: ''
+      id: $$cap_fs_aws_version
+      label: AWS version
+    - description: File storage AWS region
+      defaultValue: ''
+      id: $$cap_fs_aws_region
+      label: AWS region
   instructions:
     start: evolutivo is a CRM in php
     end: evolutivo is deployed successfully
