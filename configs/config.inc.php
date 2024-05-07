@@ -11,8 +11,7 @@ include 'vtigerversion.php';
 
 // memory limit default value = 64M
 ini_set('memory_limit', '1024M');
-error_reporting(-1);
-ini_set('display_errors', 1);
+error_reporting(E_ERROR);
 /* database configuration
  db_server
  db_port
@@ -21,11 +20,11 @@ ini_set('display_errors', 1);
  db_password
  db_name
 */
-$dbconfig['db_server'] = '<DB_HOST>';
-$dbconfig['db_port'] = ':<DB_PORT>';
-$dbconfig['db_username'] = '<DB_USER>';
-$dbconfig['db_password'] = '<DB_PASS>';
-$dbconfig['db_name'] = '<DB_NAME>';
+$dbconfig['db_server'] = 'localhost';
+$dbconfig['db_port'] = ':3306';
+$dbconfig['db_username'] = 'CHANGE_THIS';
+$dbconfig['db_password'] = 'CHANGE_THIS';
+$dbconfig['db_name'] = 'CHANGE_THIS';
 $dbconfig['db_type'] = 'mysqli';
 $dbconfig['db_status'] = 'true';
 $dbconfig['persistent'] = false;
@@ -39,10 +38,10 @@ $dbconfig['log_sql'] = false;
 // Adds a little overhead for performance but will be useful for debugging
 $SQL_LOG_INCLUDE_CALLER = false;
 
-$site_URL = '<SITE_URL>/evolutivo';
+$site_URL = 'http://localhost/coreBOSTest';
 
 // root directory path
-$root_directory = '/var/www/html/evolutivo/';
+$root_directory = '/var/www/html/';
 
 // cache direcory path
 $cache_dir = 'cache/';
@@ -95,7 +94,7 @@ $default_charset = strtoupper($default_charset);  // DO NOT MODIFY THIS LINE, IT
 $default_language = 'en_us';
 
 // Generating Unique Application Key
-$application_unique_key = '85e3dfa4b6c3115295733e5d73411059';
+$application_unique_key = '17565f92d80ec6d79c0d50bd4ce5b05f';
 
 // Maximum time limit for PHP script execution (in seconds)
 $php_max_execution_time = 0;
@@ -104,23 +103,19 @@ $php_max_execution_time = 0;
 $default_timezone = 'UTC';
 
 /** If timezone is configured, try to set it */
-if (!empty($default_timezone) && function_exists('date_default_timezone_set')) {
+if (isset($default_timezone) && function_exists('date_default_timezone_set')) {
 	@date_default_timezone_set($default_timezone);
 }
 
 // Enable log4php debugging only if requried
-$LOG4PHP_DEBUG = true;
+$LOG4PHP_DEBUG = false;
 
 // Override database with enviroment variables
+$dbconfig['db_server'] = getenv('COREBOS_DBSERVER') ? getenv('COREBOS_DBSERVER') : $dbconfig['db_server'];
 $dbconfig['db_username'] = getenv('COREBOS_DBUSER') ? getenv('COREBOS_DBUSER') : $dbconfig['db_username'];
 $dbconfig['db_password'] = getenv('COREBOS_DBPASS') ? getenv('COREBOS_DBPASS') : $dbconfig['db_password'];
 $dbconfig['db_name'] = getenv('COREBOS_DBNAME') ? getenv('COREBOS_DBNAME') : $dbconfig['db_name'];
 $site_URL = getenv('COREBOS_SITEURL') ? getenv('COREBOS_SITEURL') : $site_URL;
-if (getenv('COREBOS_DBSERVER')) {
-	$dbconfig['db_server'] = getenv('COREBOS_DBSERVER');
-	$dbconfig['db_hostname'] = $dbconfig['db_server'].$dbconfig['db_port'];
-	$host_name = $dbconfig['db_hostname'];
-}
 
 // Override with developer settings
 if (file_exists('config-dev.inc.php')) {
