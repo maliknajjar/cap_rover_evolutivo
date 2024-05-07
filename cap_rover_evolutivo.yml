@@ -85,4 +85,7 @@ caproverOneClickApp:
     end: evolutivo is deployed successfully
   displayName: Evolutivo
   isOfficial: true
-  description: This will create an evolutivo only. You will need to create and configure the database information manually. Intended for advanced users.
+  description: > 
+    This will create an evolutivo only. You will need to create and configure
+    the database information and the file storage manually. Intended for
+    advanced users.
