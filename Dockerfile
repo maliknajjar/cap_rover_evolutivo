@@ -46,6 +46,7 @@ EXPOSE 80
 # Copy application files and configurations
 RUN rm -rf /var/www/html/index.html
 COPY --chown=www-data:www-data evolutivo /var/www/html/
+COPY configs/config.inc.php /var/www/html/config.inc.php
 COPY configs/.htaccess /var/www/html/.htaccess
 
 # Set working directory
